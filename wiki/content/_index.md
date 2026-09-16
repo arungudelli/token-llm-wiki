@@ -9,10 +9,12 @@ write down the distilled, reusable truth about it as a `facts.md`, anchor that f
 git blob hash, and then **reuse the facts instead of re-reading the source** every time — saving
 tokens. When the source changes, the anchor goes *stale* and you re-read only then.
 
+> ▶ **Live:** [try the bookstore app](/app/) · [browse the facts](/pages/) · [wiki index](/wiki-index/)
+
 This repo has two halves:
 
-- **`/app`** — a toy Angular *bookstore* (list → detail → cart). This is the "codebase" an agent would
-  otherwise have to read file-by-file.
+- **`/app`** — a toy Angular *bookstore* (list → detail → cart), deployed at **[/app/](/app/)**. This is
+  the "codebase" an agent would otherwise have to read file-by-file.
 - **`/wiki`** — this Hugo site: one **[facts page](/pages/)** per app page + a
   **[Wiki Index](/wiki-index/)** resolver.
 
