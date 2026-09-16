@@ -41,7 +41,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22 # Angular 20 CLI requires Node >= 22.22.3
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
