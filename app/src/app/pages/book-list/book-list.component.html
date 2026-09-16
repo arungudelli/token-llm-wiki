@@ -1,0 +1,29 @@
+<h1>Bookstore</h1>
+
+<div class="filters">
+  <input type="search" placeholder="Search title or author…" (input)="onSearch($event)" />
+  <select (change)="onGenre($event)">
+    <option value="All">All genres</option>
+    @for (g of genres; track g) {
+      <option [value]="g">{{ g }}</option>
+    }
+  </select>
+  <a routerLink="/cart" class="cart-link">🛒 Cart ({{ cart.count() }})</a>
+</div>
+
+<div class="grid">
+  @for (book of filtered(); track book.id) {
+    <article class="card">
+      <a [routerLink]="['/books', book.id]" class="cover-link">
+        <div class="cover">{{ book.cover }}</div>
+        <h3>{{ book.title }}</h3>
+      </a>
+      <p class="author">{{ book.author }}</p>
+      <p class="genre">{{ book.genre }}</p>
+      <p class="price">{{ book.price | currency }}</p>
+      <button (click)="cart.add(book)">Add to cart</button>
+    </article>
+  } @empty {
+    <p>No books match your filter.</p>
+  }
+</div>

@@ -1,0 +1,56 @@
+.back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.detail {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+
+  .cover {
+    font-size: 6rem;
+    line-height: 1;
+  }
+  .info {
+    h1 {
+      margin: 0 0 0.25rem;
+    }
+    .author {
+      color: #555;
+      margin: 0;
+    }
+    .genre {
+      color: #888;
+      font-size: 0.85rem;
+      margin: 0.25rem 0;
+    }
+    .price {
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+    .blurb {
+      max-width: 42ch;
+      color: #333;
+    }
+  }
+  .actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+
+    button {
+      padding: 0.5rem 1rem;
+      border: 0;
+      border-radius: 4px;
+      background: #2b6cb0;
+      color: #fff;
+      cursor: pointer;
+    }
+    .cart-link {
+      text-decoration: none;
+    }
+  }
+}

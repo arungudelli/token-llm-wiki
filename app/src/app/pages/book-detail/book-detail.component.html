@@ -1,0 +1,19 @@
+@if (book(); as b) {
+  <a routerLink="/books" class="back">← Back to books</a>
+  <div class="detail">
+    <div class="cover">{{ b.cover }}</div>
+    <div class="info">
+      <h1>{{ b.title }}</h1>
+      <p class="author">by {{ b.author }}</p>
+      <p class="genre">{{ b.genre }}</p>
+      <p class="price">{{ b.price | currency }}</p>
+      <p class="blurb">{{ b.blurb }}</p>
+      <div class="actions">
+        <button (click)="cart.add(b)">Add to cart</button>
+        <a routerLink="/cart" class="cart-link">🛒 View cart ({{ cart.count() }})</a>
+      </div>
+    </div>
+  </div>
+} @else {
+  <p>Book not found. <a routerLink="/books">Back to books</a></p>
+}

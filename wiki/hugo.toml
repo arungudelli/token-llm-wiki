@@ -1,0 +1,14 @@
+baseURL = "/"
+title = "BookStore — Facts Wiki"
+
+# canonifyURLs rewrites root-relative links (e.g. /wiki-index/) to include the
+# baseURL, so the site works when served from a GitHub Pages project subpath
+# (https://<user>.github.io/token-llm-wiki/). The deploy workflow passes the real
+# baseURL at build time.
+canonifyURLs = true
+
+# Theme-less on purpose: the layouts/ folder below is all that's needed, so this
+# site clones and builds anywhere with `hugo` and zero external dependencies.
+
+[params]
+  description = "Educational demo of the facts-cache pattern on a toy Angular app."

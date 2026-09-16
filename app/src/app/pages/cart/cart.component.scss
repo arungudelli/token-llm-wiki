@@ -1,0 +1,43 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  th,
+  td {
+    border: 1px solid #e5e5e5;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+  input[type='number'] {
+    width: 4rem;
+    padding: 0.25rem;
+  }
+}
+
+.total {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.remove {
+  border: 0;
+  background: transparent;
+  color: #c53030;
+  cursor: pointer;
+}
+
+.checkout {
+  padding: 0.6rem 1.25rem;
+  border: 0;
+  border-radius: 4px;
+  background: #2f855a;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.placed {
+  color: #2f855a;
+  font-weight: 600;
+}

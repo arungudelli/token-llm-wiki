@@ -1,0 +1,15 @@
+# dependencies
+node_modules/
+
+# Angular build output
+app/dist/
+app/.angular/
+
+# Hugo build output
+wiki/public/
+wiki/.hugo_build.lock
+wiki/resources/
+
+# OS
+.DS_Store
+Thumbs.db

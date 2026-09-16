@@ -1,0 +1,37 @@
+<h1>Your Cart</h1>
+
+@if (placed()) {
+  <p class="placed">✅ Order placed! Thank you.</p>
+  <a routerLink="/books">Continue shopping</a>
+} @else if (cart.items().length === 0) {
+  <p>Your cart is empty.</p>
+  <a routerLink="/books">Browse books</a>
+} @else {
+  <table>
+    <thead>
+      <tr>
+        <th>Book</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Subtotal</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of cart.items(); track item.book.id) {
+        <tr>
+          <td>{{ item.book.title }}</td>
+          <td>{{ item.book.price | currency }}</td>
+          <td>
+            <input type="number" min="0" [value]="item.quantity" (change)="onQty(item.book.id, $event)" />
+          </td>
+          <td>{{ item.book.price * item.quantity | currency }}</td>
+          <td><button class="remove" (click)="cart.remove(item.book.id)">Remove</button></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <p class="total">Total: {{ cart.total() | currency }}</p>
+  <button class="checkout" (click)="checkout()">Checkout</button>
+}

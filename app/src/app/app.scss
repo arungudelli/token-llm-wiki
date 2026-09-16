@@ -1,0 +1,23 @@
+.app-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.25rem;
+  }
+  .tagline {
+    color: #888;
+    font-size: 0.8rem;
+  }
+}
+
+.app-main {
+  padding: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
