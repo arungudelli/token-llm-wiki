@@ -5,7 +5,7 @@ title: ""
 # 📚 BookStore — Facts Wiki
 
 An **educational demo of the "facts cache" pattern**: understand a page in a codebase **once**,
-write down the distilled, reusable truth about it as a `facts.md`, anchor that file to the source by
+write down the distilled, reusable truth about it as a `page-wiki.md`, anchor that file to the source by
 git blob hash, and then **reuse the facts instead of re-reading the source** every time — saving
 tokens. When the source changes, the anchor goes *stale* and you re-read only then.
 

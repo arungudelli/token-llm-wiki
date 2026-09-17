@@ -120,7 +120,7 @@ function cmdDemo(query) {
   if (fresh.fresh) {
     const c = cmdCompare(best.id);
     console.log('');
-    console.log(`=> REUSE facts.md — read ~${c.factsTokens} tokens instead of ~${c.srcTokens} (saved ~${c.saved}%). Source NOT re-read.`);
+    console.log(`=> REUSE page-wiki.md — read ~${c.factsTokens} tokens instead of ~${c.srcTokens} (saved ~${c.saved}%). Source NOT re-read.`);
   } else {
     console.log(`=> STALE — the safe move is to re-read source, then \`reanchor ${best.id}\`. This is exactly the case the cache must NOT hide.`);
   }

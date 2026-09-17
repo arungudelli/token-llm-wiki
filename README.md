@@ -3,7 +3,7 @@
 A tiny, self-contained, **non-proprietary** demonstration of the **"facts cache" pattern** for
 AI-assisted work on a codebase:
 
-> Understand a page **once** → write down the distilled, reusable truth as a `facts.md` → anchor it to
+> Understand a page **once** → write down the distilled, reusable truth as a `page-wiki.md` → anchor it to
 > the source by git blob hash → then **reuse the facts instead of re-reading the source** every time.
 > When the source changes, the anchor goes *stale* and you re-read **only then**.
 
@@ -20,14 +20,14 @@ silently. This repo lets you *run* the loop and *measure* the saving on toy code
 | Folder | Role |
 |---|---|
 | [`app/`](app/) | A toy **Angular bookstore** (list → detail → cart). This is the "codebase" an agent would otherwise read file-by-file. |
-| [`wiki/`](wiki/) | A **Hugo** site: one `facts.md` per app page + a `wiki-index` resolver. This is the *facts layer*. |
+| [`wiki/`](wiki/) | A **Hugo** site: one `page-wiki.md` per app page + a `wiki-index` resolver. This is the *facts layer*. |
 | [`tools/`](tools/) | `facts.mjs` — a dependency-free CLI that runs the whole loop (resolve → check → compare → demo). |
 
 ### The three tiers
 ```
 app source (many files, the ground truth)
    ↑ re-read only when facts are STALE
-facts.md  (one distilled file per page, anchored to source by git hash)   ← reused every time
+page-wiki.md  (one distilled file per page, anchored to source by git hash)   ← reused every time
    ↑ resolved via
 wiki-index.jsonl  (which page is this request about?)
 ```
@@ -62,11 +62,11 @@ node tools/facts.mjs reanchor  book-detail            # re-stamp hashes after a 
 $ node tools/facts.mjs demo "add to cart button on the book page"
 === facts-cache demo ===
 resolve "...":
-  [4] book-detail    Book Detail — wiki/content/pages/book-detail/facts.md
+  [4] book-detail    Book Detail — wiki/content/pages/book-detail/page-wiki.md
   [3] book-list      Book List — ...
 book-detail: FRESH (6/6 source hashes match)
 book-detail  re-read source: ~1414 tok (6 files)  |  reuse facts: ~678 tok  |  saved ~52%
-=> REUSE facts.md — read ~678 tokens instead of ~1414 (saved ~52%). Source NOT re-read.
+=> REUSE page-wiki.md — read ~678 tokens instead of ~1414 (saved ~52%). Source NOT re-read.
 ```
 
 ### Sample: staleness keeps it honest
@@ -86,7 +86,7 @@ you re-read source exactly when — and only when — it actually changed.
 
 ## How each piece maps to the real pattern
 
-- **`facts.md` contract** — each file is a *map + hazard list*, not a transcript: Overview, Component
+- **`page-wiki.md` contract** — each file is a *map + hazard list*, not a transcript: Overview, Component
   tree, Data flow, Routes, Key files, **Gotchas**, Related. Frontmatter carries `node-id`, `summary`,
   `aliases`, and the freshness anchor.
 - **Freshness anchor** — `source-hashes` pins `git hash-object` for every source file the facts depend
@@ -110,7 +110,7 @@ facts-cache-demo/
 ├─ app/                     # Angular bookstore (standalone components, signals)
 │  └─ src/app/{models,services,pages/{book-list,book-detail,cart}}
 ├─ wiki/                    # Hugo facts site
-│  ├─ content/pages/{book-list,book-detail,cart-checkout}/facts.md
+│  ├─ content/pages/{book-list,book-detail,cart-checkout}/page-wiki.md
 │  ├─ content/wiki-index.md
 │  ├─ static/wiki-index.jsonl
 │  └─ layouts/              # minimal, theme-less

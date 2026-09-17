@@ -1,6 +1,6 @@
 // Freshness anchor — the heart of the "facts cache" pattern.
 //
-// Each facts.md pins the exact git blob hash (`git hash-object`) of every source
+// Each page-wiki.md pins the exact git blob hash (`git hash-object`) of every source
 // file its facts depend on. If a source file's current blob hash differs from the
 // stored one, the facts are STALE and must not be trusted until re-anchored.
 // This is what makes "reuse instead of re-read" SAFE: you only pay to re-read
