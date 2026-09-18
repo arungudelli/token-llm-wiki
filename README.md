@@ -1,17 +1,12 @@
 # facts-cache-demo
 
-A tiny, self-contained, **non-proprietary** demonstration of the **"facts cache" pattern** for
-AI-assisted work on a codebase:
+A small demo you can clone, run, and measure — showing the **page wiki pattern** for AI-assisted work on a codebase:
 
 > Understand a page **once** → write down the distilled, reusable truth as a `page-wiki.md` → anchor it to
-> the source by git blob hash → then **reuse the facts instead of re-reading the source** every time.
+> the source by git blob hash → then **reuse the page instead of re-reading the source** every time.
 > When the source changes, the anchor goes *stale* and you re-read **only then**.
 
-The payoff is fewer tokens (and less time) spent re-discovering the same code, without going stale
-silently. This repo lets you *run* the loop and *measure* the saving on toy code.
-
-> Purely educational — there is no company/proprietary code here. It re-creates the shape of a real
-> internal "codebase wiki" on a throwaway app so the idea can be shared and experimented with.
+The payoff is fewer tokens spent re-discovering the same code on every session, without the wiki going stale silently.
 
 ---
 
